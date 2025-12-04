@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Balance General</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="bg-main">
+<header class="main-header">
+    <div>
+        <h1>Balance General</h1>
+        <p>Situación financiera: activos, pasivos y patrimonio a una fecha específica</p>
+    </div>
+    <nav class="breadcrumb">
+        <a href="inicio.html">Inicio</a>
+        <span>/</span>
+        <span>Balance General</span>
+    </nav>
+</header>
+
+<main class="reporte-main">
+    <section class="bg-card">
+        <div class="bg-grid">
+            <div class="bg-filtros">
+                <h2>Parámetros del balance</h2>
+                <form id="bg-form" class="reporte-form">
+                    <div class="form-group">
+                        <label for="bg-fecha">Fecha de corte</label>
+                        <input type="date" id="bg-fecha">
+                    </div>
+                    <div class="reporte-botones">
+                        <button type="submit" class="btn-primary">Generar</button>
+                        <button type="button" id="bg-btn-hoy" class="btn-secondary">Usar fecha actual</button>
+                    </div>
+                    <span class="error-message" id="bg-error"></span>
+                    <p class="small-text">
+                        Se consideran los movimientos registrados hasta la fecha de corte. Si se deja vacío, se toman todos los asientos.
+                    </p>
+                    <p class="small-text" id="bg-periodo-texto"></p>
+                </form>
+            </div>
+
+            <div class="bg-tablas-wrapper">
+                <div class="bg-columns">
+                    <div class="bg-col">
+                        <h2>Activos</h2>
+                        <table class="lineas-table">
+                            <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cuenta</th>
+                                <th>Saldo</th>
+                            </tr>
+                            </thead>
+                            <tbody id="bg-activos-body">
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th colspan="2">Total activos</th>
+                                <th id="bg-total-activos">0.00</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="bg-col">
+                        <h2>Pasivos</h2>
+                        <table class="lineas-table">
+                            <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cuenta</th>
+                                <th>Saldo</th>
+                            </tr>
+                            </thead>
+                            <tbody id="bg-pasivos-body">
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th colspan="2">Total pasivos</th>
+                                <th id="bg-total-pasivos">0.00</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+
+                        <h2 style="margin-top:0.75rem;">Patrimonio</h2>
+                        <table class="lineas-table">
+                            <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cuenta</th>
+                                <th>Saldo</th>
+                            </tr>
+                            </thead>
+                            <tbody id="bg-patrimonio-body">
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th colspan="2">Total patrimonio</th>
+                                <th id="bg-total-patrimonio">0.00</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-resumen-card">
+                    <h2>Resumen del balance</h2>
+                    <p class="small-text" id="bg-resumen-texto"></p>
+                    <p class="small-text" id="bg-cuadre-texto"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="Js/balance_general.js"></script>
+<script src="Js/auth.js"></script>
+
+</body>
+</html>

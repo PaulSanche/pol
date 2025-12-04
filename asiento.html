@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Asiento Contable</title>
+   <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="bg-main">
+<header class="main-header">
+    <div>
+        <h1>Registrar Asiento Contable</h1>
+        <p>Formulario para registrar transacciones en el libro diario</p>
+    </div>
+    <nav class="breadcrumb">
+        <a href="inicio.html">Inicio</a>
+        <span>/</span>
+        <span>Registrar Asiento</span>
+    </nav>
+</header>
+
+<main class="asiento-main">
+    <section class="asiento-card">
+        <form id="asiento-form">
+            <div class="asiento-header-grid">
+                <div class="form-group">
+                    <label for="fecha-asiento">Fecha</label>
+                    <input type="date" id="fecha-asiento">
+                    <span class="error-message" id="fecha-error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="numero-asiento">Número de Asiento</label>
+                    <input type="text" id="numero-asiento" value="Pendiente" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion-asiento">Descripción / Concepto</label>
+                    <input type="text" id="descripcion-asiento" maxlength="150">
+                    <span class="error-message" id="descripcion-error"></span>
+                </div>
+            </div>
+
+            <h2 class="subtitulo">Líneas del asiento</h2>
+            <div class="lineas-wrapper">
+                <table class="lineas-table">
+                    <thead>
+                    <tr>
+                        <th>Cuenta</th>
+                        <th>Detalle</th>
+                        <th>Debe</th>
+                        <th>Haber</th>
+                    </tr>
+                    </thead>
+                    <tbody id="lineas-body">
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="2">Totales</th>
+                        <th id="total-debe">0.00</th>
+                        <th id="total-haber">0.00</th>
+                    </tr>
+                    </tfoot>
+                </table>
+                <button type="button" id="btn-agregar-linea" class="btn-secondary mt-small">Agregar línea</button>
+                <span class="error-message" id="lineas-error"></span>
+            </div>
+
+            <div class="asiento-footer">
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="chk-imprimir">
+                    <span>Imprimir comprobante al guardar</span>
+                </label>
+                <div class="asiento-buttons">
+                    <button type="button" id="btn-cancelar" class="btn-secondary">Cancelar</button>
+                    <button type="submit" id="btn-guardar-asiento" class="btn-primary" disabled>Guardar</button>
+                </div>
+            </div>
+
+            <div class="mensaje-exito" id="mensaje-exito"></div>
+        </form>
+    </section>
+</main>
+
+<script src="Js/asiento.js"></script>
+<script src="Js/auth.js"></script>
+
+</body>
+</html>

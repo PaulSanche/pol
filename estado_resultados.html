@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estado de Resultados</title>
+    <link rel="stylesheet" href="css/index.css  ">
+</head>
+<body class="bg-main">
+<header class="main-header">
+    <div>
+        <h1>Estado de Resultados</h1>
+        <p>Ingresos, gastos y utilidad del periodo seleccionado</p>
+    </div>
+    <nav class="breadcrumb">
+        <a href="inicio.html">Inicio</a>
+        <span>/</span>
+        <span>Estado de Resultados</span>
+    </nav>
+</header>
+
+<main class="reporte-main">
+    <section class="reporte-card">
+        <div class="er-grid">
+            <div class="er-filtros">
+                <h2>Parámetros del periodo</h2>
+                <form id="er-form" class="reporte-form">
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="er-desde">Fecha desde</label>
+                            <input type="date" id="er-desde">
+                        </div>
+                        <div class="form-group">
+                            <label for="er-hasta">Fecha hasta</label>
+                            <input type="date" id="er-hasta">
+                        </div>
+                    </div>
+                    <div class="reporte-botones">
+                        <button type="submit" class="btn-primary">Generar</button>
+                        <button type="button" id="er-btn-limpiar" class="btn-secondary">Limpiar filtros</button>
+                    </div>
+                    <span class="error-message" id="er-error"></span>
+                    <p class="small-text">
+                        Se consideran las cuentas de tipo Ingreso y Gasto según los asientos registrados en el rango.
+                    </p>
+                </form>
+                <div class="er-resumen-periodo">
+                    <p class="small-text" id="er-periodo-texto"></p>
+                </div>
+            </div>
+
+            <div class="er-tablas">
+                <div class="er-tablas-grid">
+                    <div class="er-bloque">
+                        <h2>Ingresos</h2>
+                        <table class="lineas-table">
+                            <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cuenta</th>
+                                <th>Monto</th>
+                            </tr>
+                            </thead>
+                            <tbody id="er-tabla-ingresos">
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th colspan="2">Total ingresos</th>
+                                <th id="er-total-ingresos">0.00</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="er-bloque">
+                        <h2>Gastos</h2>
+                        <table class="lineas-table">
+                            <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cuenta</th>
+                                <th>Monto</th>
+                            </tr>
+                            </thead>
+                            <tbody id="er-tabla-gastos">
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th colspan="2">Total gastos</th>
+                                <th id="er-total-gastos">0.00</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="er-resultado-card">
+                    <h2>Resultado del periodo</h2>
+                    <p class="small-text" id="er-detalle-resultado"></p>
+                    <p id="er-resultado-monto" class="kpi-value"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="Js/estado_resultado.js"></script>
+<script src="Js/auth.js"></script>
+
+</body>
+</html>

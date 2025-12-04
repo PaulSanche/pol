@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="bg-main" data-admin-only="true">
+
+<header class="main-header">
+    <div>
+        <h1>Gestión de Usuarios</h1>
+        <p>Administración de cuentas de acceso al sistema</p>
+    </div>
+    <nav class="breadcrumb">
+        <a href="inicio.html">Inicio</a>
+        <span>/</span>
+        <span>Gestión de Usuarios</span>
+    </nav>
+</header>
+
+<main class="usuarios-main">
+    <section class="usuarios-card">
+        <div class="usuarios-grid">
+            <div class="usuarios-form-wrapper">
+                <h2>Nuevo / Editar usuario</h2>
+                <form id="usuario-form" class="usuarios-form">
+                    <div class="form-group">
+                        <label for="u-username">Nombre de usuario</label>
+                        <input type="text" id="u-username" maxlength="30">
+                        <span class="error-message" id="u-username-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="u-nombre">Nombre completo</label>
+                        <input type="text" id="u-nombre" maxlength="80">
+                        <span class="error-message" id="u-nombre-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="u-email">Correo electrónico</label>
+                        <input type="email" id="u-email" maxlength="100">
+                        <span class="error-message" id="u-email-error"></span>
+                    </div>
+
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="u-rol">Rol</label>
+                            <select id="u-rol">
+                                <option value="">Seleccione rol</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Contador">Contador</option>
+                                <option value="Consulta">Consulta</option>
+                            </select>
+                            <span class="error-message" id="u-rol-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="u-activo">Estado</label>
+                            <select id="u-activo">
+                                <option value="true">Activo</option>
+                                <option value="false">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="u-password">Contraseña</label>
+                            <input type="password" id="u-password" maxlength="40">
+                            <span class="error-message" id="u-password-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="u-password2">Confirmar contraseña</label>
+                            <input type="password" id="u-password2" maxlength="40">
+                            <span class="error-message" id="u-password2-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="usuarios-botones">
+                        <button type="submit" id="btn-guardar-usuario" class="btn-primary">Guardar usuario</button>
+                        <button type="button" id="btn-nuevo-usuario" class="btn-secondary">Nuevo usuario</button>
+                    </div>
+                    <span class="error-message" id="u-general-error"></span>
+                    <div class="mensaje-exito" id="u-mensaje-exito"></div>
+                    <p class="small-text">
+                        Nota: Debe existir al menos un usuario con rol Administrador activo.
+                    </p>
+                </form>
+            </div>
+
+            <div class="usuarios-lista-wrapper">
+                <h2>Usuarios registrados</h2>
+                <table class="lineas-table">
+                    <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tabla-usuarios">
+                    </tbody>
+                </table>
+                <p class="small-text" id="usuarios-resumen"></p>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="Js/auth.js"></script>
+<script src="Js/gestion_usuarios.js"></script>
+
+
+</body>
+</html>

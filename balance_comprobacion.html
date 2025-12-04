@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Balance de Comprobación</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="bg-main">
+<header class="main-header">
+    <div>
+        <h1>Balance de Comprobación</h1>
+        <p>Sumas y saldos por cuenta en el periodo seleccionado</p>
+    </div>
+    <nav class="breadcrumb">
+        <a href="inicio.html">Inicio</a>
+        <span>/</span>
+        <span>Balance de Comprobación</span>
+    </nav>
+</header>
+
+<main class="reporte-main">
+    <section class="reporte-card">
+        <div class="reporte-grid">
+            <div class="reporte-filtros">
+                <h2>Parámetros del reporte</h2>
+                <form id="reporte-form" class="reporte-form">
+                    <div class="form-row-two">
+                        <div class="form-group">
+                            <label for="r-desde">Fecha desde</label>
+                            <input type="date" id="r-desde">
+                        </div>
+                        <div class="form-group">
+                            <label for="r-hasta">Fecha hasta</label>
+                            <input type="date" id="r-hasta">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="r-tipo">Tipo de cuenta</label>
+                        <select id="r-tipo">
+                            <option value="">Todas</option>
+                            <option value="Activo">Activos</option>
+                            <option value="Pasivo">Pasivos</option>
+                            <option value="Patrimonio">Patrimonio</option>
+                            <option value="Ingreso">Ingresos</option>
+                            <option value="Gasto">Gastos</option>
+                        </select>
+                    </div>
+                    <div class="reporte-botones">
+                        <button type="submit" class="btn-primary">Generar</button>
+                        <button type="button" id="btn-reporte-limpiar" class="btn-secondary">Limpiar filtros</button>
+                    </div>
+                    <span class="error-message" id="reporte-error"></span>
+                    <p class="small-text">
+                        El balance muestra sumas de movimientos débito y crédito y el saldo final por cuenta.
+                    </p>
+                </form>
+            </div>
+
+            <div class="reporte-tabla-wrapper">
+                <h2>Balance de Comprobación</h2>
+                <table class="lineas-table">
+                    <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre de cuenta</th>
+                        <th>Tipo</th>
+                        <th>Saldo inicial</th>
+                        <th>Suma débitos</th>
+                        <th>Suma créditos</th>
+                        <th>Saldo final</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tabla-balance">
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="4">Totales</th>
+                        <th id="tot-suma-debe">0.00</th>
+                        <th id="tot-suma-haber">0.00</th>
+                        <th id="tot-saldo-final">0.00</th>
+                    </tr>
+                    </tfoot>
+                </table>
+                <p class="small-text" id="reporte-resumen"></p>
+                <p class="small-text" id="reporte-cuadre"></p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="Js/balance_comprobacion.js"></script>
+<script src="Js/auth.js"></script>
+
+</body>
+</html>

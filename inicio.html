@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Finanzas con Propósito - Inicio</title>
+   <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="bg-main">
+<header class="main-header">
+    <div>
+        <h1>Finanzas con Propósito</h1>
+        <p>Menú principal del sistema contable</p>
+    </div>
+    <div class="user-info">
+        <span id="bienvenida-usuario"></span>
+        <button id="btn-logout" class="btn-secondary small">Cerrar sesión</button>
+    </div>
+</header>
+ 
+<section class="menu-section">
+    <h2>Transacciones</h2>
+    <div class="menu-grid">
+        <a href="asiento.html" class="menu-card">
+            <h3>Registrar Asiento</h3>
+            <p>Registrar nuevas operaciones contables en el libro diario.</p>
+        </a>
+        <a href="asientos_buscar.html" class="menu-card">
+            <h3>Búsqueda / Edición de Asientos</h3>
+            <p>Filtrar asientos existentes, revisar detalles y actualizar datos permitidos.</p>
+        </a>
+    </div>
+</section>
+
+<section class="menu-section">
+    <h2>Catálogos</h2>
+    <div class="menu-grid">
+        <a href="catalogo_cuentas.html" class="menu-card">
+            <h3>Catálogo de Cuentas</h3>
+            <p>Definir y mantener la estructura del plan contable.</p>
+        </a>
+    </div>
+</section>
+
+<section class="menu-section">
+    <h2>Reportes</h2>
+    <div class="menu-grid">
+        <a href="balance_comprobacion.html" class="menu-card">
+            <h3>Balance de Comprobación</h3>
+            <p>Sumas y saldos para verificar el cuadre de la contabilidad.</p>
+        </a>
+        <a href="estado_resultados.html" class="menu-card">
+            <h3>Estado de Resultados</h3>
+            <p>Ingresos, gastos y utilidad neta del periodo.</p>
+        </a>
+        <a href="balance_general.html" class="menu-card">
+            <h3>Balance General</h3>
+            <p>Activos, pasivos y patrimonio a una fecha específica.</p>
+        </a>
+    </div>
+</section>
+<section class="menu-section">
+    <h2>Configuración</h2>
+    <div class="menu-grid">
+        <a href="gestion_usuarios.html" class="menu-card" data-role-required="Administrador">
+            <h3>Gestión de Usuarios</h3>
+            <p>Crear, editar y administrar los usuarios del sistema.</p>
+        </a>
+    </div>
+</section>
+
+
+
+</main>
+<script src="Js/auth.js"></script>
+
+
+<script>
+    
+    const nombre = localStorage.getItem("fp_usuario_actual");
+    const bienvenida = document.getElementById("bienvenida-usuario");
+    if (bienvenida) {
+        bienvenida.textContent = "Sesión iniciada como: " +nombre ;
+    }
+    const btnLogout = document.getElementById("btn-logout");
+    btnLogout.addEventListener("click", function () {
+        localStorage.removeItem("fp_usuario_actual");
+        window.location.href = "index.html";
+    });
+</script>
+</body>
+</html>
